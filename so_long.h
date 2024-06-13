@@ -17,9 +17,9 @@
 #include "./MLX42/include/MLX42/MLX42.h"
 
 #include <fcntl.h>
-#include <stdbool.h>
 
-/* Put def of textures here */
+# define BLOCK 50
+
 
 typedef enum e_object
 {
@@ -52,8 +52,10 @@ int open_file(const char *file);
 
 /* init_map */
 t_map init_map(const char *map);
-int count_rows(const char *file);
+int get_map_depth(const char *file);
 int get_map_len(const char *file);
 
+/* draw_map */
+mlx_t *init_window(const t_map *data);
 
 #endif

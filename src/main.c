@@ -14,7 +14,7 @@
 
 int main(int argc, char **argv)
 {
-    t_map  map;
+    t_map  *map;
 
     if (argc != 2)
     {
@@ -27,4 +27,8 @@ int main(int argc, char **argv)
         exit(1);
     }
     map = init_map(argv[1]);
+    map->window = init_window(&map);
+    mlx_key_hook(map->window, &key_hook, map);
+    mlx_loop(map->window);
+    return(0);
 }
