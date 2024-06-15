@@ -23,12 +23,14 @@ int main(int argc, char **argv)
     }
     if (!ber_file(argv[1]))
     {
-        ft_putchar_fd("Error\n Invalid file type.\n .ber files only!\n", 2);
+        ft_putstr_fd("Error\n Invalid file type.\n .ber files only!\n", 2);
         exit(1);
     }
-    map = init_map(argv[1]);
-    map->window = init_window(&map);
-    mlx_key_hook(map->window, &key_hook, map);
+    map = read_map(argv[1]);
+    map->window = init_window(map);
+   // mlx_key_hook(map->window, &key_hook, map);
     mlx_loop(map->window);
+    free(map->map);
+    mlx_terminate(map->window);
     return(0);
 }

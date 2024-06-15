@@ -13,8 +13,8 @@
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-#include "./Libft/libft.h"
-#include "./MLX42/include/MLX42/MLX42.h"
+#include "../Libft/libft.h"
+#include "../MLX42/include/MLX42/MLX42.h"
 
 #include <fcntl.h>
 
@@ -40,10 +40,13 @@ typedef enum e_move
 
 typedef struct s_map
 {
-    int x;
-    int y;
-    mlx_t *window;
-    t_object *objects;
+    int         map_width;
+    int         map_hight;
+    int         start_x;
+    int         start_y;
+    mlx_t       *window;
+    char        **map;
+    t_object    *objects;
 } t_map;
 
 /* utils */
@@ -51,9 +54,10 @@ int ber_file(const char *str);
 int open_file(const char *file);
 
 /* init_map */
-t_map init_map(const char *map);
+t_map *read_map(const char *map);
 int get_map_depth(const char *file);
 int get_map_len(const char *file);
+void check_file(const char *file);
 
 /* draw_map */
 mlx_t *init_window(const t_map *data);

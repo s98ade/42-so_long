@@ -1,13 +1,20 @@
-NAME 		= so_long
-CC			= cc 
-CFLAGS		= -Wall -Wextra -Werror
-SRCS		= main.c \
-OBJS		= $(SRCS:.c=.o)
-HEADER		= so_long.h
-GLFW_DIR	= 
-MLX			= MLX42/build/libmlx42.a
-MLX_HEADER	= MLX42/include/MLX42/MLX42.h 
-LIBFT		= Libft/libft.a
+NAME 			= so_long
+CC				= gcc 
+SRCS			= $(addprefix ./src/, main.c \
+									draw_map.c \
+									init_map.c \
+									init_window.c \
+									map_utils.c \
+									utils.c \
+									validation1.c \)
+
+OBJS			= $(SRCS:.c=.o)
+HEADER			= -I ./includes
+MLX				= MLX42/build/libmlx42.a
+MLX_HEADER		= -I MLX42/include/MLX42/MLX42.h 
+LIBFT			= Libft/libft.a
+DEPENDENCIES	= -ldl -lglfw -pthread -lm
+CFLAGS			+= -Wall -Wextra -Werror $(HEADER)
 
 all:		$(NAME)
 
@@ -20,8 +27,8 @@ $(LIBFT):
 
 $(MLX):		@cd MLX42 && cmake -B build && cmake --build build -j4
 
-$(NAME):	$(OBJS) $(MLX) $(LIBFT) $(HEADER)
-				@$(CC) $(OBJS) $(MLX) $(LIBFT) -ldl -pthread -lm -L$(GLFW_DIR) -lglfw -I $(MLX_HEADER) -o $(NAME)
+$(NAME):	$(OBJS) $(MLX) $(LIBFT) 
+				@$(CC) $(OBJS) $(MLX) $(LIBFT) $(MLX_HEADER) $(DEPENDENCIES) -o $(NAME)
 				@echo "$(GREEN)Compilation of '$(NAME)' successful$(NC)"
 
 %.o:%.c 
