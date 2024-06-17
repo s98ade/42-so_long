@@ -27,10 +27,11 @@ int main(int argc, char **argv)
         exit(1);
     }
     map = read_map(argv[1]);
+    mlx_set_setting(MLX_STRETCH_IMAGE, true);
     map->window = init_window(map);
    // mlx_key_hook(map->window, &key_hook, map);
     mlx_loop(map->window);
-    free(map->map);
+    //free(map->map);
     mlx_terminate(map->window);
     return(0);
 }

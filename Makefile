@@ -3,7 +3,6 @@ CC				= gcc
 SRCS			= $(addprefix ./src/, main.c \
 									draw_map.c \
 									init_map.c \
-									init_window.c \
 									map_utils.c \
 									utils.c \
 									validation1.c \)

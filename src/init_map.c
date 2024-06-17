@@ -73,19 +73,28 @@ t_map *read_map(const char *file)
 {
     t_map *data;
 
+    data = (t_map *)malloc(sizeof(t_map));  // Allocate memory for data
+    if (!data)  // Check if the allocation was successful
+    {
+        ft_putstr_fd("Error\n Memory allocation failed!\n", 2);
+        exit(1);
+    }
     check_file(file);
     data->map_width = get_map_len(file);
     data->map_hight = get_map_depth(file);
     if(data->map_width == 0 || data->map_hight == 0)
     {
         ft_putstr_fd("Error\n File is empty!\n", 2);
+        free(data);
         exit(1);
     }
     data->objects = ((t_object *)malloc(sizeof(t_object) * (data->map_width * data->map_hight)));
     if(!data->objects)
     {
         ft_putstr_fd("Error\n Memory allocation failed!\n", 2);
+        free(data);
         exit(1);
     }
+    return(data);
 }
 
