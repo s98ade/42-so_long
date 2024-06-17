@@ -5,7 +5,7 @@ SRCS			= $(addprefix ./src/, main.c \
 									init_map.c \
 									map_utils.c \
 									utils.c \
-									validation1.c \)
+									validation1.c)
 
 OBJS			= $(SRCS:.c=.o)
 HEADER			= -I ./includes
@@ -24,7 +24,8 @@ NC = \033[0m
 $(LIBFT):
 			@make -C ./Libft
 
-$(MLX):		@cd MLX42 && cmake -B build && cmake --build build -j4
+$(MLX):
+			@cd MLX42 && cmake -B build && cmake --build build -j4
 
 $(NAME):	$(OBJS) $(MLX) $(LIBFT) 
 				@$(CC) $(OBJS) $(MLX) $(LIBFT) $(MLX_HEADER) $(DEPENDENCIES) -o $(NAME)

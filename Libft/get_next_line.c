@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sade <sade@student.hive.fi>                +#+  +:+       +#+        */
+/*   By: sade <sade@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 15:20:59 by sade              #+#    #+#             */
-/*   Updated: 2024/03/11 09:57:51 by sade             ###   ########.fr       */
+/*   Updated: 2024/06/17 11:27:40 by sade             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,21 +103,21 @@ char	*get_next_line(int fd)
 		return (NULL);
 	return (ft_extract_line(&result));
 }
-int main(int argc, char **argv)
-{
-	int fd;
-	char *line;
-	int i;
+// int main(int argc, char **argv)
+// {
+// 	int fd;
+// 	char *line;
+// 	int i;
 	
-	if (argc == 1)
-		fd = 0;
-	if (argc == 2)
-		fd = open(argv[1], O_RDONLY);
-	for (i = 0; i < 6; i++)
-	{
-		line = get_next_line(fd);
-		printf("%s", line);
-	}
-	free (line);
-	return (0);
-}
+// 	if (argc == 1)
+// 		fd = 0;
+// 	if (argc == 2)
+// 		fd = open(argv[1], O_RDONLY);
+// 	for (i = 0; i < 6; i++)
+// 	{
+// 		line = get_next_line(fd);
+// 		printf("%s", line);
+// 	}
+// 	free (line);
+// 	return (0);
+// }
