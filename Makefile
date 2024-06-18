@@ -12,8 +12,9 @@ HEADER			= -I ./includes
 MLX				= MLX42/build/libmlx42.a
 MLX_HEADER		= -I MLX42/include/MLX42/MLX42.h 
 LIBFT			= Libft/libft.a
+LDFLAGS			+= -L/usr/local/lib -lglfw
+CFLAGS			+= -Wall -Wextra -Werror $(HEADER) -I/usr/local/include
 DEPENDENCIES	= -ldl -lglfw -pthread -lm
-CFLAGS			+= -Wall -Wextra -Werror $(HEADER)
 
 all:		$(NAME)
 
@@ -28,7 +29,7 @@ $(MLX):
 			@cd MLX42 && cmake -B build && cmake --build build -j4
 
 $(NAME):	$(OBJS) $(MLX) $(LIBFT) 
-				@$(CC) $(OBJS) $(MLX) $(LIBFT) $(MLX_HEADER) $(DEPENDENCIES) -o $(NAME)
+				@$(CC) $(OBJS) $(MLX) $(LIBFT) $(MLX_HEADER) $(DEPENDENCIES) $(LDFLAGS) -o $(NAME)
 				@echo "$(GREEN)Compilation of '$(NAME)' successful$(NC)"
 
 %.o:%.c 
