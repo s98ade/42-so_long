@@ -97,4 +97,3 @@ t_map *read_map(const char *file)
     }
     return(data);
 }
-

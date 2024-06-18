@@ -29,7 +29,7 @@ int open_file(const char *file)
     fd = open(file, O_RDONLY);
     if(fd == -1)
     {
-        ft_putstr_fd("Error\n File couldn't be opened!\n", 2);
+        ft_putstr_fd("Error\nFile couldn't be opened!\n", 2);
         close(fd);
         exit(1);
     }
