@@ -49,3 +49,7 @@ re:			fclean all
 			@echo "$(GREEN)Program was recompiled$(NC)"
 
 .PHONY:		all clean flean re 
+
+
+#######################################################
+#compilation only works in terminal outside of vscode!#

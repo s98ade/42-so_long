@@ -12,14 +12,14 @@
 
 # include"so_long.h"
 
-int ber_file(const char *str)
+bool ber_file(const char *str)
 {
     size_t len;
 
     len = ft_strlen(str);
     if(ft_strncmp(".ber", str + len - 4, 4) == 0)
-        return(0);
-    return(1);
+        return(true);
+    return(false);
 }
 
 int open_file(const char *file)

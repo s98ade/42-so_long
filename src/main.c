@@ -18,12 +18,12 @@ int main(int argc, char **argv)
 
     if (argc != 2)
     {
-        ft_putstr_fd("Error\n Not enough arguments!\n", 2);
+        ft_putstr_fd("Error\nNot enough arguments!\n", 2);
         exit(1);
     }
     if (!ber_file(argv[1]))
     {
-        ft_putstr_fd("Error\n Invalid file type.\n .ber files only!\n", 2);
+        ft_putstr_fd("Error\nInvalid file type.\n .ber files only!\n", 2);
         exit(1);
     }
     map = read_map(argv[1]);

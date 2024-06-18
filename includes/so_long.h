@@ -17,6 +17,7 @@
 #include "../MLX42/include/MLX42/MLX42.h"
 
 #include <fcntl.h>
+#include <stdbool.h>
 
 # define BLOCK 50
 
@@ -50,7 +51,7 @@ typedef struct s_map
 } t_map;
 
 /* utils */
-int ber_file(const char *str);
+bool ber_file(const char *str);
 int open_file(const char *file);
 
 /* init_map */
