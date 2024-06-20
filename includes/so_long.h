@@ -21,6 +21,11 @@
 
 # define BLOCK 50
 
+# define TEXTURE_COLLECTABLE ""
+# define TEXTURE_PLAYER ""
+# define TEXTURE_WALL ""
+# define TEXTURE_FLOOR ""
+# define TEXTURE_EXIT ""
 
 typedef enum e_object
 {
@@ -59,6 +64,15 @@ t_map *read_map(const char *map);
 int get_map_depth(const char *file);
 int get_map_len(const char *file);
 void check_file(const char *file);
+
+/* check_map */
+void validate_map_sides(t_map *data);
+void validate_map_borders(t_map *data);
+void validate_map(t_map *data);
+int count_objects(t_map *data, t_object obj);
+
+/* convert */
+void convert_line(int fd, int y, t_map *data);
 
 /* draw_map */
 mlx_t *init_window(const t_map *data);
