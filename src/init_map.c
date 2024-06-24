@@ -69,43 +69,23 @@ int get_map_depth(const char *file)
     return(rows);
 }
 
-t_map *read_map(const char *file)
+t_map init_data(char *file)
 {
-    t_map *data;
-    int fd;
-    int i;
+    t_map data;
 
-    i = -1;
-    check_file(file);
-    fd = open_file(file);
-    data->map_width = get_map_len(file);
-    data->map_hight = get_map_depth(file);
-    if(data->map_width == 0 || data->map_hight == 0)
+    data.map_width = get_map_len(file);
+    data.map_height = get_map_depth(file);
+    if(data.map_width == 0 || data.map_height == 0)
     {
-        ft_putstr_fd("Error\nFile is empty!\n", 2);
-        free(data);
+        ft_putstr_fd("Error\nEmpty file!\n", 2);
         exit(1);
     }
-    data->map = malloc((data->map_hight + 1) * sizeof(char *));
-    if(data->map == NULL)
+    data.map = NULL;
+    data.objects = (t_object *)malloc(sizeof(t_object) * data.map_width * data.map_height);
+    if(!data.objects)
     {
         ft_putstr_fd("Error\nMemory allocation failed!\n", 2);
-        free(data); //don´t know whehter correct
         exit(1);
     }
-    while(++i < data->map_hight - 1)
-    {
-        data->map[i] = get_next_line(fd);
-        if(ft_strlen(data->map[i] != (data->map_width + 1)))
-        {
-            ft_putstr_fd("Error\nInvalid mpa!\n", 2);
-            free(data); //don´t know whether correct
-        }
-    }
-    data->map[i] = get_next_line(fd);
-    data->map[i++] = ft_strdup("\0");
-    // fill map
-    validate_map(data);
-    close(fd);
     return(data);
 }

@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   convert.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sade <sade@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: sofia <sofia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 12:01:32 by sade              #+#    #+#             */
-/*   Updated: 2024/06/20 12:04:55 by sade             ###   ########.fr       */
+/*   Updated: 2024/06/24 17:16:50 by sofia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+//#include "so_long.h"
 
-void convert_line(int fd, int y, t_map *data)
+/*void convert_line(int fd, int y, t_map *data)
 {
     
-}
+}*/
 

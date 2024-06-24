@@ -3,9 +3,8 @@ CC				= gcc
 SRCS			= $(addprefix ./src/, main.c \
 									draw_map.c \
 									init_map.c \
-									map_utils.c \
 									utils.c \
-									validation1.c)
+									check_map.c)
 
 OBJS			= $(SRCS:.c=.o)
 HEADER			= -I ./includes
@@ -39,14 +38,14 @@ clean:
 			@rm -f $(OBJS)
 			@rm -rf MLX42/build
 			make fclean -C ./Libft
-			@echo "$(BLUE)Removed object files$(NC)"
+			@echo "$(BLUE) Removed object files$(NC)"
 
 fclean:		clean
 			@rm -f $(NAME)
-			@echo "$(NAME)Program was removed$(NC)"
+			@echo "$(NAME) Program was removed$(NC)"
 
 re:			fclean all
-			@echo "$(GREEN)Program was recompiled$(NC)"
+			@echo "$(GREEN) Program was recompiled$(NC)"
 
 .PHONY:		all clean flean re 
 

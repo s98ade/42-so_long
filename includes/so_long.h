@@ -46,8 +46,10 @@ typedef enum e_move
 
 typedef struct s_map
 {
+    int         collectables;
+    int         collected;
     int         map_width;
-    int         map_hight;
+    int         map_height;
     int         start_x;
     int         start_y;
     mlx_t       *window;
@@ -60,7 +62,7 @@ bool ber_file(const char *str);
 int open_file(const char *file);
 
 /* init_map */
-t_map *read_map(const char *map);
+t_map init_data(char *file);
 int get_map_depth(const char *file);
 int get_map_len(const char *file);
 void check_file(const char *file);

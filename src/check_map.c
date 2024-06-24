@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sade <sade@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: sofia <sofia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 12:04:39 by sade              #+#    #+#             */
-/*   Updated: 2024/06/20 14:06:36 by sade             ###   ########.fr       */
+/*   Updated: 2024/06/24 17:48:46 by sofia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ void validate_map_borders(t_map *data)
         }
         i++;
     }
-    i = (data->map_width * data->map_hight) - data->map_width;
-    while(i < (data->map_width * data->map_hight))
+    i = (data->map_width * data->map_height) - data->map_width;
+    while(i < (data->map_width * data->map_height))
     {
         if(data->objects[i] != '1')
         {
@@ -45,7 +45,7 @@ void validate_map_sides(t_map *data)
     int end;
 
     i = 0;
-    while(i < data->map_hight)
+    while(i < data->map_height)
     {
         start = i * data->map_width;
         end = start + data->map_width - 1;
@@ -70,7 +70,7 @@ int count_objects(t_map *data, t_object obj)
 
     i = 0;
     count = 0;
-    while(i < (data->map_width * data->map_hight))
+    while(i < (data->map_width * data->map_height))
     {
         if(data->objects[i] == obj)
             count++;

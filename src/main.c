@@ -14,7 +14,7 @@
 
 int main(int argc, char **argv)
 {
-    t_map  *map;
+    t_map  data;
 
     if (argc != 2)
     {
@@ -26,12 +26,12 @@ int main(int argc, char **argv)
         ft_putstr_fd("Error\nInvalid file type.\n .ber files only!\n", 2);
         exit(1);
     }
-    map = read_map(argv[1]);
+    data = init_data(argv[1]);
     mlx_set_setting(MLX_STRETCH_IMAGE, true);
-    map->window = init_window(map);
+    data.window = init_window(&data);
    // mlx_key_hook(map->window, &key_hook, map);
-    mlx_loop(map->window);
+    mlx_loop(data.window);
     //free(map->map);
-    mlx_terminate(map->window);
+    mlx_terminate(data.window);
     return(0);
 }
