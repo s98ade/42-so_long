@@ -21,19 +21,19 @@
 
 # define BLOCK 50
 
-# define TEXTURE_COLLECTABLE ""
-# define TEXTURE_PLAYER ""
-# define TEXTURE_WALL ""
-# define TEXTURE_FLOOR ""
-# define TEXTURE_EXIT ""
+# define TEXTURE_COLLECTABLE "collectable.png"
+# define TEXTURE_PLAYER "player.png"
+# define TEXTURE_WALL "wall.png"
+# define TEXTURE_FLOOR "space.png"
+# define TEXTURE_EXIT "exit.png"
 
 typedef enum e_object
 {
     PLAYER,
     COLLECTABLE,
     EXIT,
-    SPACE,
-    OBSTACLE
+    FLOOR,
+    WALL
 } t_object;
 
 typedef enum e_move
@@ -74,9 +74,15 @@ void validate_map(t_map *data);
 int count_objects(t_map *data, t_object obj);
 
 /* convert */
-void convert_line(int fd, int y, t_map *data);
+void read_map(const char *file, t_map *data);
+void read_line(int fd, int height, t_map *data);
+t_object convert_objects(const char obj);
 
 /* draw_map */
 mlx_t *init_window(const t_map *data);
+
+/* error_handling */
+void file_error(int nbr);
+void map_error(int nbr, char *line);
 
 #endif

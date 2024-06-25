@@ -4,6 +4,7 @@ SRCS			= $(addprefix ./src/, main.c \
 									draw_map.c \
 									init_map.c \
 									utils.c \
+									error_handling.c \
 									check_map.c)
 
 OBJS			= $(SRCS:.c=.o)

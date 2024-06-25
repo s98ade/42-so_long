@@ -20,10 +20,7 @@ void check_file(const char *file)
     fd = open_file(file);
     read_line = get_next_line(fd);
     if(read_line == NULL)
-    {
-        ft_putstr_fd("Error\nMap reading failed!", 2);
-        exit(1);
-    }
+        map_error(1, NULL);
     while(read_line)
     {
         free(read_line);
@@ -76,16 +73,11 @@ t_map init_data(char *file)
     data.map_width = get_map_len(file);
     data.map_height = get_map_depth(file);
     if(data.map_width == 0 || data.map_height == 0)
-    {
-        ft_putstr_fd("Error\nEmpty file!\n", 2);
-        exit(1);
-    }
+        file_error(3);
     data.map = NULL;
     data.objects = (t_object *)malloc(sizeof(t_object) * data.map_width * data.map_height);
     if(!data.objects)
-    {
-        ft_putstr_fd("Error\nMemory allocation failed!\n", 2);
-        exit(1);
-    }
+        file_error(1);
+    read_map(file, &data);
     return(data);
 }
