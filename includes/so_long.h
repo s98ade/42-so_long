@@ -76,7 +76,7 @@ int count_objects(t_map *data, t_object obj);
 /* convert */
 void read_map(const char *file, t_map *data);
 void read_line(int fd, int height, t_map *data);
-t_object convert_objects(const char obj);
+t_object get_objects(const char obj);
 
 /* draw_map */
 mlx_t *init_window(const t_map *data);

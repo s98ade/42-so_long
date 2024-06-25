@@ -6,7 +6,7 @@
 /*   By: sofia <sofia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 12:01:32 by sade              #+#    #+#             */
-/*   Updated: 2024/06/25 15:53:40 by sofia            ###   ########.fr       */
+/*   Updated: 2024/06/25 20:44:44 by sofia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void read_line(int fd, int height, t_map *data)
     while(line[width] != '\n' && line[width])
     {
         if(width < data->map_width)
-            data->objects[data->map_width * height + width] = convert_objects(line[width]);
+            data->objects[data->map_width * height + width] = get_objects(line[width]);
         width++;
     }
     if(width != data->map_width)
@@ -38,7 +38,7 @@ void read_line(int fd, int height, t_map *data)
     free(line);
 }
 
-t_object convert_objects(const char obj)
+t_object get_objects(const char obj)
 {
     if(obj == 'C')
         return(COLLECTABLE);
@@ -51,10 +51,7 @@ t_object convert_objects(const char obj)
     else if(obj == 'P')
         return(PLAYER);
     else
-    {
-        ft_putstr_fd("Error\nMap invalid!\ntype: SYMBOLS\n", 2);
-        exit(1);
-    }  
+        map_error(6, NULL);
 }
 
 void read_map(const char *file, t_map *data)
