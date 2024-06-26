@@ -1,7 +1,7 @@
 NAME 			= so_long
 CC				= gcc 
 SRCS			= $(addprefix ./src/, main.c \
-									draw_map.c \
+									init_game.c \
 									init_map.c \
 									utils.c \
 									error_handling.c \

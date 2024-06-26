@@ -5,19 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sofia <sofia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/13 12:05:28 by sade              #+#    #+#             */
-/*   Updated: 2024/06/25 15:48:17 by sofia            ###   ########.fr       */
+/*   Created: 2024/06/26 18:26:52 by sofia             #+#    #+#             */
+/*   Updated: 2024/06/26 18:28:19 by sofia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-mlx_t *init_window(const t_map *data)
+void draw_floor(t_map *data)
 {
-    mlx_t *window;
 
-    window = mlx_init(BLOCK * data->map_width, BLOCK * data->map_height, "so_long", true);
-    if(!window)
-        map_error(2, NULL);
-    return(window);
+}
+
+void draw_walls(t_map *data)
+{
+    
+}
+
+void draw_collectables(t_map *data)
+{
+
+}
+
+void draw_exit(t_map *data)
+{
+    
 }

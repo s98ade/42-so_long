@@ -35,3 +35,35 @@ int open_file(const char *file)
     }
     return(fd);
 }
+
+int count_objects(t_map *data, t_object obj)
+{
+    int count;
+    int i;
+
+    i = 0;
+    count = 0;
+    while(i < (data->map_width * data->map_height))
+    {
+        if(data->objects[i] == obj)
+            count++;
+        i++;
+    }
+    return(count);
+}
+
+void *get_png_path(const t_object obj)
+{
+    if(obj == COLLECTABLE)
+        return(TEXTURE_COLLECTABLE);
+    else if(obj == EXIT)
+        return(TEXTURE_EXIT);
+    else if(obj == WALL)
+        return(TEXTURE_WALL);
+    else if(obj == FLOOR)
+        return(TEXTURE_FLOOR);
+    else if(obj == PLAYER)
+        return(TEXTURE_PLAYER);
+    else
+        return(NULL);
+}

@@ -6,7 +6,7 @@
 /*   By: sofia <sofia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 12:04:39 by sade              #+#    #+#             */
-/*   Updated: 2024/06/25 15:55:41 by sofia            ###   ########.fr       */
+/*   Updated: 2024/06/25 22:28:59 by sofia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void validate_map_borders(t_map *data)
     while(i < (data->map_width * data->map_height))
     {
         if(data->objects[i] != '1')
-            mapp_error(5, NULL);
+            map_error(5, NULL);
         i++;
     }
 }
@@ -51,31 +51,15 @@ void validate_map_sides(t_map *data)
     }
 }
 
-int count_objects(t_map *data, t_object obj)
-{
-    int count;
-    int i;
-
-    i = 0;
-    count = 0;
-    while(i < (data->map_width * data->map_height))
-    {
-        if(data->objects[i] == obj)
-            count++;
-        i++;
-    }
-    return(count);
-}
-
 void validate_map(t_map *data)
 {
     validate_map_borders(data);
-    validate_map(data);
+    validate_map__sides(data);
     //
     if(count_objects(data, PLAYER) != 1 || count_objects(data, EXIT) != 1 || count_objects(data, COLLECTABLE) == 0)
     {
-        ft_putstr_fd("Error\nMap invalid!", 2);
-        //free stuff
+        ft_putstr_fd("Error\nMap invalid!\ntype: OBJECTS\n", 2);
+        free(data->objects);
         exit(1);
     }
 }

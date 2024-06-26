@@ -1,6 +1,3 @@
-# DONE: window is displayed and can be exited
-# DONE: handles simple errors like open-error, read-error, malloc-error
-
-# TODO: Draw image to window
-# TODO: Keyhooks
-# TODO: Error management
+# TODO: Code draw-functions; test output
+# TODO: Code kehook-function; test output
+# TODO: Finish map validation functions

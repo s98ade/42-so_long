@@ -6,7 +6,7 @@
 /*   By: sofia <sofia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 15:26:22 by sofia             #+#    #+#             */
-/*   Updated: 2024/06/25 20:43:23 by sofia            ###   ########.fr       */
+/*   Updated: 2024/06/26 18:08:18 by sofia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,11 @@ void map_error(int nbr, char *line)
     else if(nbr == 6)
     {
         ft_putstr_fd("Error\nMap invalid!\ntype: SYMBOLS\n", 2);
+        exit(1);
+    }
+    else if(nbr == 7)
+    {
+        ft_putstr_fd("Error\nInitialization of image failed!\n", 2);
         exit(1);
     }
 }

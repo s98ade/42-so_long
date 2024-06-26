@@ -60,6 +60,8 @@ typedef struct s_map
 /* utils */
 bool ber_file(const char *str);
 int open_file(const char *file);
+int count_objects(t_map *data, t_object obj);
+void *get_png_path(const t_object obj);
 
 /* init_map */
 t_map init_data(char *file);
@@ -71,15 +73,22 @@ void check_file(const char *file);
 void validate_map_sides(t_map *data);
 void validate_map_borders(t_map *data);
 void validate_map(t_map *data);
-int count_objects(t_map *data, t_object obj);
 
 /* convert */
 void read_map(const char *file, t_map *data);
 void read_line(int fd, int height, t_map *data);
 t_object get_objects(const char obj);
 
-/* draw_map */
+/* init_game */
 mlx_t *init_window(const t_map *data);
+mlx_image_t *get_image(mlx_t *window, const t_object obj);
+void draw_map(t_map *data);
+
+/* draw_map */
+void draw_floor(t_map *data);
+void draw_walls(t_map *data);
+void draw_collectables(t_map *data);
+void draw_exit(t_map *data);
 
 /* error_handling */
 void file_error(int nbr);
