@@ -82,13 +82,13 @@ t_object get_objects(const char obj);
 /* init_game */
 mlx_t *init_window(const t_map *data);
 mlx_image_t *get_image(mlx_t *window, const t_object obj);
-void draw_map(t_map *data);
+void draw_map(t_map *data, mlx_t *window);
 
 /* draw_map */
-void draw_floor(t_map *data);
-void draw_walls(t_map *data);
-void draw_collectables(t_map *data);
-void draw_exit(t_map *data);
+void draw_floor(t_map *data, mlx_t *window);
+void draw_walls(t_map *data, mlx_t *window);
+void draw_collectables(t_map *data, mlx_t *window);
+void draw_exit(t_map *data, mlx_t *window);
 
 /* error_handling */
 void file_error(int nbr);

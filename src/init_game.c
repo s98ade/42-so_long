@@ -6,7 +6,7 @@
 /*   By: sofia <sofia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 12:05:28 by sade              #+#    #+#             */
-/*   Updated: 2024/06/26 18:33:31 by sofia            ###   ########.fr       */
+/*   Updated: 2024/06/27 15:04:57 by sofia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ mlx_image_t *get_image(mlx_t *window, const t_object obj)
     return(image);
 }
 
-void draw_map(t_map *data)
+void draw_map(t_map *data, mlx_t *window)
 {
     draw_floor(data);
     draw_walls(data);
