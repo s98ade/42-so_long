@@ -24,6 +24,7 @@ int main(int argc, char **argv)
     mlx_set_setting(MLX_STRETCH_IMAGE, true);
     data.window = init_window(&data);
     draw_map(&data, data.window);
+    printf("TEST\n");
    // mlx_key_hook(map->window, &key_hook, map);
     mlx_loop(data.window);
     //free(map->map);

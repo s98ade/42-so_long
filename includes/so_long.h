@@ -18,14 +18,15 @@
 
 #include <fcntl.h>
 #include <stdbool.h>
+#include<stdio.h>
 
 # define BLOCK 50
 
-# define TEXTURE_COLLECTABLE "collectable.png"
-# define TEXTURE_PLAYER "player.png"
-# define TEXTURE_WALL "wall.png"
-# define TEXTURE_FLOOR "space.png"
-# define TEXTURE_EXIT "exit.png"
+# define TEXTURE_COLLECTABLE "./textures/collectable.png"
+# define TEXTURE_PLAYER "./textures/player.png"
+# define TEXTURE_WALL "./textures/wall.png"
+# define TEXTURE_FLOOR "./textures/space.png"
+# define TEXTURE_EXIT "./textures/exit.png"
 
 typedef enum e_object
 {
@@ -60,7 +61,7 @@ typedef struct s_map
 /* utils */
 bool ber_file(const char *str);
 int open_file(const char *file);
-int count_objects(t_map *data, t_object obj);
+//int count_objects(t_map *data, t_object obj);
 void *get_png_path(const t_object obj);
 
 /* init_map */
@@ -68,11 +69,12 @@ t_map init_data(char *file);
 int get_map_depth(const char *file);
 int get_map_len(const char *file);
 void check_file(const char *file);
+void init_map(char *file, t_map *data);
 
 /* check_map */
-void validate_map_sides(t_map *data);
-void validate_map_borders(t_map *data);
-void validate_map(t_map *data);
+// void validate_map_sides(t_map *data);
+// void validate_map_borders(t_map *data);
+// void validate_map(t_map *data);
 
 /* convert */
 void read_map(const char *file, t_map *data);
@@ -85,10 +87,11 @@ mlx_image_t *get_image(mlx_t *window, const t_object obj);
 void draw_map(t_map *data, mlx_t *window);
 
 /* draw_map */
-void draw_floor(t_map *data, mlx_t *window, int *y, int *x);
-void draw_walls(t_map *data, mlx_t *window, int *y, int *x);
-void draw_collectables(t_map *data, mlx_t *window, int *y, int *x);
-void draw_exit(t_map *data, mlx_t *window, int *y, int *x);
+// void draw_floor(t_map *data, mlx_t *window, int *y, int *x);
+// void draw_walls(t_map *data, mlx_t *window, int *y, int *x);
+// void draw_collectables(t_map *data, mlx_t *window, int *y, int *x);
+// void draw_exit(t_map *data, mlx_t *window, int *y, int *x);
+// void draw_player(t_map *data, mlx_t *window, int *y, int *x);
 
 /* error_handling */
 void file_error(int nbr);

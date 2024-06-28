@@ -6,11 +6,11 @@
 /*   By: sofia <sofia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 12:04:39 by sade              #+#    #+#             */
-/*   Updated: 2024/06/25 22:28:59 by sofia            ###   ########.fr       */
+/*   Updated: 2024/06/28 14:50:00 by sofia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+/* #include "so_long.h"
 
 void validate_map_borders(t_map *data)
 {
@@ -62,4 +62,4 @@ void validate_map(t_map *data)
         free(data->objects);
         exit(1);
     }
-}
+} */

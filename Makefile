@@ -4,8 +4,8 @@ SRCS			= $(addprefix ./src/, main.c \
 									init_game.c \
 									init_map.c \
 									utils.c \
-									error_handling.c \
-									check_map.c)
+									convert.c \
+									error_handling.c)
 
 OBJS			= $(SRCS:.c=.o)
 HEADER			= -I ./includes

@@ -1,3 +1,3 @@
-# TODO: Code draw-functions; test output
+# TODO: FIX draw function -> can produce an output but flauty (only prints wall?)
 # TODO: Code keyhook-function; test output
 # TODO: Finish map validation functions

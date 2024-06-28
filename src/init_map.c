@@ -66,6 +66,28 @@ int get_map_depth(const char *file)
     return(rows);
 }
 
+void init_map(char *file, t_map *data)
+{
+    int i;
+    int fd;
+
+    i = -1;
+    fd = open_file(file);
+    data->map = malloc((data->map_height + 1) * sizeof(char *));
+    // error-handling
+    while(i++ < data->map_height - 1)
+    {
+        data->map[i] = get_next_line(fd);
+        // if((int)ft_strlen(data->map[i]) != (data->map_width + 1))
+        // {
+        //     //error-handling
+        // }
+    }
+    data->map[i] = get_next_line(fd);
+    data->map[i++] = ft_strdup("\0");
+    close(fd);
+}
+
 t_map init_data(char *file)
 {
     t_map data;
@@ -79,5 +101,6 @@ t_map init_data(char *file)
     if(!data.objects)
         file_error(1);
     read_map(file, &data);
+    init_map(file, &data);
     return(data);
 }

@@ -6,7 +6,7 @@
 /*   By: sofia <sofia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 12:01:32 by sade              #+#    #+#             */
-/*   Updated: 2024/06/25 20:44:44 by sofia            ###   ########.fr       */
+/*   Updated: 2024/06/28 14:55:38 by sofia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ t_object get_objects(const char obj)
         return(PLAYER);
     else
         map_error(6, NULL);
+    return(0);
 }
 
 void read_map(const char *file, t_map *data)
@@ -61,7 +62,7 @@ void read_map(const char *file, t_map *data)
 
     i = 0;
     fd = open_file(file);
-    while(i < data->map_height);
+    while(i < data->map_height)
     {
         read_line(fd, i, data);
         i++;

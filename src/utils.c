@@ -36,7 +36,7 @@ int open_file(const char *file)
     return(fd);
 }
 
-int count_objects(t_map *data, t_object obj)
+/* int count_objects(t_map *data, t_object obj)
 {
     int count;
     int i;
@@ -50,7 +50,7 @@ int count_objects(t_map *data, t_object obj)
         i++;
     }
     return(count);
-}
+} */
 
 void *get_png_path(const t_object obj)
 {

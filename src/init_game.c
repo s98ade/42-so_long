@@ -6,7 +6,7 @@
 /*   By: sofia <sofia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 12:05:28 by sade              #+#    #+#             */
-/*   Updated: 2024/06/28 12:29:31 by sofia            ###   ########.fr       */
+/*   Updated: 2024/06/28 16:07:43 by sofia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void draw_map(t_map *data, mlx_t *window)
 {
     int y;
     int x;
+    t_object obj;
 
     y = 0;
     while(data->map[y])
@@ -36,16 +37,34 @@ void draw_map(t_map *data, mlx_t *window)
         x = 0;
         while(data->map[y][x])
         {
-            if(data->map[y][x] == FLOOR)
-                draw_floor(data, window, &y, &x);
-            else if(data->map[y][x] == WALL)
-                draw_walls(data, window, &y, &x);
-            else if(data->map[y][x] == COLLECTABLE)
-                draw_collectables(data, window, &y, &x);
-            else if(data->map[y][x] == EXIT)
-                draw_exit(data, window, &y, &x);
-            else if(data->map[y][x] == PLAYER)
-                draw_player(data, window, &y, &x);
+            obj = data->objects[x];
+            if(data->map[y][x] == '0')
+            {
+                mlx_image_to_window(window, get_image(window, obj), x * BLOCK, y * BLOCK); 
+                printf("floor\n");
+            } 
+            else if(data->map[y][x] == '1')
+            {
+                mlx_image_to_window(window, get_image(window, obj), x * BLOCK, y * BLOCK);
+                printf("wall\n");
+            }
+            else if(data->map[y][x] == 'C')
+            {
+                mlx_image_to_window(window, get_image(window, obj), x * BLOCK, y * BLOCK);
+                printf("coin\n");
+            }
+            else if(data->map[y][x] == 'E')
+            {
+                mlx_image_to_window(window, get_image(window, obj), x * BLOCK, y * BLOCK);
+                printf("exit\n");
+            }
+            else if(data->map[y][x] == 'P')
+            {
+                 mlx_image_to_window(window, get_image(window, obj), x * BLOCK, y * BLOCK);
+                data->start_y = y;
+                data->start_x = x;
+                printf("player\n");
+            }
             x++;
         }
         y++;
