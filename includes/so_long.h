@@ -34,7 +34,8 @@ typedef enum e_object
     COLLECTABLE,
     EXIT,
     FLOOR,
-    WALL
+    WALL,
+    NUM_OBJ
 } t_object;
 
 typedef enum e_move
@@ -55,14 +56,14 @@ typedef struct s_map
     int         start_y;
     mlx_t       *window;
     char        **map;
-    t_object    *objects;
+    mlx_image_t    *objects[NUM_OBJ];
 } t_map;
 
 /* utils */
 bool ber_file(const char *str);
 int open_file(const char *file);
 //int count_objects(t_map *data, t_object obj);
-void *get_png_path(const t_object obj);
+const char *get_png_path(const t_object obj);
 void print_map(t_map *data); //    PLEASE REMOVE AFTER DEBUG
 void print_objects(t_map *data);// REMOVE AFTER DEBUG
 
@@ -86,6 +87,7 @@ t_object get_objects(const char obj);
 /* init_game */
 mlx_t *init_window(const t_map *data);
 mlx_image_t *get_image(mlx_t *window, const t_object obj);
+void init_objects(t_map *data);
 void draw_map(t_map *data, mlx_t *window);
 
 /* draw_map */

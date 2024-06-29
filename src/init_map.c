@@ -98,9 +98,9 @@ t_map init_data(char *file)
     if(data.map_width == 0 || data.map_height == 0)
         file_error(3);
     data.map = NULL;
-    data.objects = (t_object *)malloc(sizeof(t_object) * data.map_width * data.map_height);
+    //data.objects = (t_object *)malloc(sizeof(t_object) * data.map_width * data.map_height);
     if(!data.objects)
-        file_error(1);
+        file_error(4);
     read_map(file, &data);
     init_map(file, &data);
     return(data);

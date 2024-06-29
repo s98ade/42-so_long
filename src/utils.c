@@ -52,7 +52,7 @@ int open_file(const char *file)
     return(count);
 } */
 
-void *get_png_path(const t_object obj)
+const char *get_png_path(const t_object obj)
 {
     if(obj == COLLECTABLE)
         return(TEXTURE_COLLECTABLE);
@@ -67,6 +67,8 @@ void *get_png_path(const t_object obj)
     else
         return(NULL);
 }
+
+// DEBUGGING //
 
 void print_map(t_map *data)
 {
