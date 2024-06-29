@@ -63,6 +63,8 @@ bool ber_file(const char *str);
 int open_file(const char *file);
 //int count_objects(t_map *data, t_object obj);
 void *get_png_path(const t_object obj);
+void print_map(t_map *data); //    PLEASE REMOVE AFTER DEBUG
+void print_objects(t_map *data);// REMOVE AFTER DEBUG
 
 /* init_map */
 t_map init_data(char *file);

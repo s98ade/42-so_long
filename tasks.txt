@@ -1,3 +1,7 @@
+# UPDATE 29.06.:-> reads map correctly now, calls objects correctly, but output window is still flauty
+                -> issue is in initializing objects -> CHECK OBJECT INITIALIZATION
+
 # TODO: FIX draw function -> can produce an output but flauty (only prints wall?)
+        -> init_game, draw_map
 # TODO: Code keyhook-function; test output
 # TODO: Finish map validation functions

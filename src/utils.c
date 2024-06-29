@@ -67,3 +67,22 @@ void *get_png_path(const t_object obj)
     else
         return(NULL);
 }
+
+void print_map(t_map *data)
+{
+    int y = 0;
+    while(data->map[y])
+    {
+        printf("%s", data->map[y]);
+        y++;
+    }
+}
+
+void print_objects(t_map *data)
+{
+    printf("Floor: %p\n", (void *)data->objects[FLOOR]);
+    printf("Wall: %p\n", (void *)data->objects[FLOOR]);
+    printf("Coin: %p\n", (void *)data->objects[FLOOR]);
+    printf("Exit: %p\n", (void *)data->objects[FLOOR]);
+    printf("Player: %p\n", (void *)data->objects[FLOOR]);
+}

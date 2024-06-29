@@ -70,21 +70,22 @@ void init_map(char *file, t_map *data)
 {
     int i;
     int fd;
+    char *line;
 
-    i = -1;
     fd = open_file(file);
-    data->map = malloc((data->map_height + 1) * sizeof(char *));
-    // error-handling
-    while(i++ < data->map_height - 1)
+    line = get_next_line(fd);
+
+    data->map = (char **)malloc(sizeof(char *) * (data->map_height + 1));
+    i = 0;
+    while(line)
     {
-        data->map[i] = get_next_line(fd);
-        // if((int)ft_strlen(data->map[i]) != (data->map_width + 1))
-        // {
-        //     //error-handling
-        // }
+        data->map[i] = line;
+        line = get_next_line(fd);
+        i++;
     }
-    data->map[i] = get_next_line(fd);
-    data->map[i++] = ft_strdup("\0");
+    data->map[i] = '\0';
+    free(line);
+    line = NULL;
     close(fd);
 }
 

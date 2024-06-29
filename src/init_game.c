@@ -6,7 +6,7 @@
 /*   By: sofia <sofia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 12:05:28 by sade              #+#    #+#             */
-/*   Updated: 2024/06/28 16:07:43 by sofia            ###   ########.fr       */
+/*   Updated: 2024/06/29 15:24:50 by sofia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void draw_map(t_map *data, mlx_t *window)
             }
             else if(data->map[y][x] == 'P')
             {
-                 mlx_image_to_window(window, get_image(window, obj), x * BLOCK, y * BLOCK);
+                mlx_image_to_window(window, get_image(window, obj), x * BLOCK, y * BLOCK);
                 data->start_y = y;
                 data->start_x = x;
                 printf("player\n");
