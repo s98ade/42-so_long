@@ -6,7 +6,7 @@
 /*   By: sofia <sofia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 12:01:32 by sade              #+#    #+#             */
-/*   Updated: 2024/06/28 14:55:38 by sofia            ###   ########.fr       */
+/*   Updated: 2024/06/29 19:54:09 by sofia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void read_line(int fd, int height, t_map *data)
 {
     char *line;
     int width;
+    t_object obj;
 
     line = get_next_line(fd);
     if(!line)
@@ -27,7 +28,16 @@ void read_line(int fd, int height, t_map *data)
     while(line[width] != '\n' && line[width])
     {
         if(width < data->map_width)
-            data->objects[data->map_width * height + width] = get_objects(line[width]);
+        {
+            obj = get_objects(line[width]);
+            if(obj)
+               data->objects[data->map_width * height + width] = get_image(data->window, obj); 
+            else
+            {
+                close(fd);
+                map_error(6, NULL);
+            }
+        }
         width++;
     }
     if(width != data->map_width)
