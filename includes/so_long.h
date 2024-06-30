@@ -67,6 +67,7 @@ typedef struct s_map
 bool ber_file(const char *str);
 int open_file(const char *file);
 //int count_objects(t_map *data, t_object obj);
+void free_map(char **map);
 void print_map(t_map *data); //    PLEASE REMOVE AFTER DEBUG
 
 /* init_map */
@@ -86,8 +87,8 @@ void init_map(char *file, t_map *data);
 // void read_line(int fd, int height, t_map *data);
 
 /* init_game */
-void init_texture(t_objects *texture);
-void init_images(t_objects *image, mlx_t *window);
+void init_texture(t_objects *texture, t_map *data);
+void init_images(t_objects *image, mlx_t *window, t_map *data);
 mlx_t *init_window(const t_map *data);
 void draw_map(t_map *data, mlx_t *window);
 
@@ -101,5 +102,6 @@ void draw_map(t_map *data, mlx_t *window);
 /* error_handling */
 void file_error(int nbr);
 void map_error(int nbr, char *line);
+void error_mlx(char **map);
 
 #endif

@@ -52,6 +52,21 @@ int open_file(const char *file)
     return(count);
 } */
 
+void free_map(char **map)
+{
+    int i;
+
+    i = 0;
+    while(map[i][0] != '\0')
+    {
+        free(map[i]);
+        i++;
+    }
+    free(map[i]);
+    free(map);
+    map = NULL;
+}
+
 // DEBUGGING //
 
 void print_map(t_map *data)

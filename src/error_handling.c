@@ -6,7 +6,7 @@
 /*   By: sofia <sofia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 15:26:22 by sofia             #+#    #+#             */
-/*   Updated: 2024/06/29 15:48:02 by sofia            ###   ########.fr       */
+/*   Updated: 2024/06/30 16:25:33 by sofia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,11 @@ void map_error(int nbr, char *line)
         ft_putstr_fd("Error\nInitialization of image failed!\n", 2);
         exit(1);
     }
+}
+
+void error_mlx(char **map)
+{
+    ft_printf("%s\n", mlx_strerror(mlx_errno));
+    free_map(map);
+    exit(1);
 }
