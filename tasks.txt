@@ -1,7 +1,5 @@
-# UPDATE 29.06.:-> reads map correctly now, calls objects correctly, but output window is still flauty
-                -> issue is in initializing objects -> CHECK OBJECT INITIALIZATION
-                ->probably issue in passing enum objects
+# UPDATE 29.06.:-> images init works now (ugly tho)
 
-# TODO: either have to figure out how to use enum objects or change enum to struct with mlx_image_t objects
 # TODO: Code keyhook-function; test output
+# TODO: Player movement (and maybe better grafics)
 # TODO: Finish map validation functions

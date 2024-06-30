@@ -92,16 +92,13 @@ void init_map(char *file, t_map *data)
 t_map init_data(char *file)
 {
     t_map data;
-    t_objects obj;
 
     data.map_width = get_map_len(file);
     data.map_height = get_map_depth(file);
     if(data.map_width == 0 || data.map_height == 0)
         file_error(3);
     data.map = NULL;
-    //obj = malloc(sizeof(t_objects));
+    data.imgs = malloc(sizeof(t_objects));
     init_map(file, &data);
-    init_texture(&obj, &data);
-    init_images(&obj, data.window, &data);
     return(data);
 }
