@@ -52,22 +52,6 @@ int open_file(const char *file)
     return(count);
 } */
 
-const char *get_png_path(const t_object obj)
-{
-    if(obj == COLLECTABLE)
-        return(TEXTURE_COLLECTABLE);
-    else if(obj == EXIT)
-        return(TEXTURE_EXIT);
-    else if(obj == WALL)
-        return(TEXTURE_WALL);
-    else if(obj == FLOOR)
-        return(TEXTURE_FLOOR);
-    else if(obj == PLAYER)
-        return(TEXTURE_PLAYER);
-    else
-        return(NULL);
-}
-
 // DEBUGGING //
 
 void print_map(t_map *data)
@@ -78,13 +62,4 @@ void print_map(t_map *data)
         printf("%s", data->map[y]);
         y++;
     }
-}
-
-void print_objects(t_map *data)
-{
-    printf("Floor: %p\n", (void *)data->objects[FLOOR]);
-    printf("Wall: %p\n", (void *)data->objects[FLOOR]);
-    printf("Coin: %p\n", (void *)data->objects[FLOOR]);
-    printf("Exit: %p\n", (void *)data->objects[FLOOR]);
-    printf("Player: %p\n", (void *)data->objects[FLOOR]);
 }

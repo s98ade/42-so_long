@@ -28,15 +28,19 @@
 # define TEXTURE_FLOOR "./textures/space.png"
 # define TEXTURE_EXIT "./textures/exit.png"
 
-typedef enum e_object
+typedef struct s_objects
 {
-    PLAYER,
-    COLLECTABLE,
-    EXIT,
-    FLOOR,
-    WALL,
-    NUM_OBJ
-} t_object;
+    mlx_texture_t   *tex_floor;
+    mlx_texture_t   *tex_wall;
+    mlx_texture_t   *tex_coin;
+    mlx_texture_t   *tex_exit;
+    mlx_texture_t   *tex_player;
+    mlx_image_t     *img_floor;
+    mlx_image_t     *img_wall;
+    mlx_image_t     *img_coin;
+    mlx_image_t     *img_exit;
+    mlx_image_t     *img_player;
+} t_objects;
 
 typedef enum e_move
 {
@@ -56,16 +60,14 @@ typedef struct s_map
     int         start_y;
     mlx_t       *window;
     char        **map;
-    mlx_image_t    *objects[NUM_OBJ];
+    t_objects   *imgs;
 } t_map;
 
 /* utils */
 bool ber_file(const char *str);
 int open_file(const char *file);
 //int count_objects(t_map *data, t_object obj);
-const char *get_png_path(const t_object obj);
 void print_map(t_map *data); //    PLEASE REMOVE AFTER DEBUG
-void print_objects(t_map *data);// REMOVE AFTER DEBUG
 
 /* init_map */
 t_map init_data(char *file);
@@ -80,14 +82,13 @@ void init_map(char *file, t_map *data);
 // void validate_map(t_map *data);
 
 /* convert */
-void read_map(const char *file, t_map *data);
-void read_line(int fd, int height, t_map *data);
-t_object get_objects(const char obj);
+// void read_map(const char *file, t_map *data);
+// void read_line(int fd, int height, t_map *data);
 
 /* init_game */
+void init_texture(t_objects *texture);
+void init_images(t_objects *image, mlx_t *window);
 mlx_t *init_window(const t_map *data);
-mlx_image_t *get_image(mlx_t *window, const t_object obj);
-void init_objects(t_map *data);
 void draw_map(t_map *data, mlx_t *window);
 
 /* draw_map */

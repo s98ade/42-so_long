@@ -6,88 +6,71 @@
 /*   By: sofia <sofia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 12:05:28 by sade              #+#    #+#             */
-/*   Updated: 2024/06/29 19:38:30 by sofia            ###   ########.fr       */
+/*   Updated: 2024/06/30 10:44:00 by sofia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-mlx_image_t *get_image(mlx_t *window, const t_object obj)
+void init_texture(t_objects *texture)
 {
-    mlx_image_t *image;
-    mlx_texture_t   *texture;
-
-    texture = mlx_load_png(get_png_path(obj));
-    image = mlx_texture_to_image(window, texture);
-    mlx_delete_texture(texture);
-    if(!image)
-        map_error(7, NULL);
-    return(image);
+    // ERROR HANDLING MISSING
+    texture->tex_floor = mlx_load_png(TEXTURE_FLOOR);
+    texture->tex_wall = mlx_load_png(TEXTURE_WALL);
+    texture->tex_coin = mlx_load_png(TEXTURE_COLLECTABLE);
+    texture->tex_exit = mlx_load_png(TEXTURE_EXIT);
+    texture->tex_player = mlx_load_png(TEXTURE_PLAYER);
 }
 
-void init_objects(t_map *data)
+void init_images(t_objects *image, mlx_t *window)
 {
-    int i;
-    
-    data->objects[FLOOR] = get_image(data->window, FLOOR);
-    data->objects[WALL] = get_image(data->window, WALL);
-    data->objects[COLLECTABLE] = get_image(data->window, COLLECTABLE);
-    data->objects[EXIT] = get_image(data->window, EXIT);
-    data->objects[PLAYER] = get_image(data->window, PLAYER); 
-    i = 0;
-    while(i < NUM_OBJ)
-    {
-        if(!data->objects[i])
-            map_error(7, NULL);
-        i++;
-    }
+    // ERROR HANDLING MISSING
+    image->img_floor = mlx_texture_to_image(window, image->tex_floor);
+    // if(!image->img_floor)
+    //     mlx_delete_texture(image->img_floor);
+    image->img_wall = mlx_texture_to_image(window, image->tex_wall);
+    // if(!image->img_wall)
+    //     mlx_delete_texture(image->img_wall);
+    image->img_coin = mlx_texture_to_image(window, image->tex_coin);
+    // if(!image->img_coin)
+    //     mlx_delete_texture(image->img_coin);
+    image->img_exit = mlx_texture_to_image(window, image->tex_exit);
+    // if(!image->img_exit)
+    //     mlx_delete_texture(image->img_exit);
+    image->img_player = mlx_texture_to_image(window, image->tex_player);
+    // if(!image->img_player)
+    //     mlx_delete_texture(image->img_player);
 }
 
 void draw_map(t_map *data, mlx_t *window)
 {
-    int y;
-    int x;
-    mlx_image_t *obj;
+    // ERROR HANDLING MISSING
+    int i;
+    int j;
 
-    y = 0;
-    while(data->map[y])
+    i = 0;
+    while(data->map[i])
     {
-        x = 0;
-        while(data->map[y][x])
+        j = 0;
+        while(data->map[i][j])
         {
-            obj = NULL;
-            if(data->map[y][x] == '0')
+            if(data->map[i][j] == '1')
+                mlx_image_to_window(window, data->imgs->img_wall, i * BLOCK, j * BLOCK);
+            else if(data->map[i][j] == '0')
+                mlx_image_to_window(window, data->imgs->img_floor, i * BLOCK, j * BLOCK);
+            else if(data->map[i][j] == 'C')
+                mlx_image_to_window(window, data->imgs->img_coin, i * BLOCK, j * BLOCK);
+            else if(data->map[i][j] == 'E')
+                mlx_image_to_window(window, data->imgs->img_exit, i * BLOCK, j * BLOCK);
+            else if(data->map[i][j] == 'P')
             {
-                obj = data->objects[FLOOR]; 
-                printf("floor\n");
-            } 
-            else if(data->map[y][x] == '1')
-            {
-                obj = data->objects[WALL];
-                printf("wall\n");
+                mlx_image_to_window(window, data->imgs->img_player, i * BLOCK, j * BLOCK);
+                data->start_y = i;
+                data->start_x = j;
             }
-            else if(data->map[y][x] == 'C')
-            {
-                obj = data->objects[COLLECTABLE];
-                printf("coin\n");
-            }
-            else if(data->map[y][x] == 'E')
-            {
-                obj = data->objects[EXIT];
-                printf("exit\n");
-            }
-            else if(data->map[y][x] == 'P')
-            {
-                obj = data->objects[PLAYER];
-                data->start_y = y;
-                data->start_x = x;
-                printf("player\n");
-            }
-            if(obj)
-                mlx_image_to_window(window, obj, x * BLOCK, y * BLOCK);
-            x++;
+            j++;
         }
-        y++;
+        i++;
     }
 }
 
