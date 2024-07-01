@@ -68,7 +68,6 @@ bool ber_file(const char *str);
 int open_file(const char *file);
 //int count_objects(t_map *data, t_object obj);
 void free_map(char **map);
-void print_map(t_map *data); //    PLEASE REMOVE AFTER DEBUG
 
 /* init_map */
 t_map init_data(char *file);
@@ -82,22 +81,15 @@ void init_map(char *file, t_map *data);
 // void validate_map_borders(t_map *data);
 // void validate_map(t_map *data);
 
-/* convert */
-// void read_map(const char *file, t_map *data);
-// void read_line(int fd, int height, t_map *data);
-
 /* init_game */
 void init_texture(t_objects *texture, t_map *data);
 void init_images(t_objects *image, mlx_t *window, t_map *data);
 mlx_t *init_window(const t_map *data);
 void draw_map(t_map *data, mlx_t *window);
+void key_hook(mlx_key_data_t keydata, void *params);
 
-/* draw_map */
-// void draw_floor(t_map *data, mlx_t *window, int *y, int *x);
-// void draw_walls(t_map *data, mlx_t *window, int *y, int *x);
-// void draw_collectables(t_map *data, mlx_t *window, int *y, int *x);
-// void draw_exit(t_map *data, mlx_t *window, int *y, int *x);
-// void draw_player(t_map *data, mlx_t *window, int *y, int *x);
+/* movements */
+
 
 /* error_handling */
 void file_error(int nbr);

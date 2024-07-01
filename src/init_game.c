@@ -6,7 +6,7 @@
 /*   By: sofia <sofia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 12:05:28 by sade              #+#    #+#             */
-/*   Updated: 2024/06/30 16:48:30 by sofia            ###   ########.fr       */
+/*   Updated: 2024/07/01 09:40:45 by sofia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void init_texture(t_objects *texture, t_map *data)
 {
-    // ERROR HANDLING MISSING
     texture->tex_floor = mlx_load_png(TEXTURE_FLOOR);
     if(!texture->tex_floor)
         error_mlx(data->map);
@@ -88,8 +87,6 @@ void draw_map(t_map *data, mlx_t *window)
     }
 }
 
-// void key_hook()
-
 mlx_t *init_window(const t_map *data)
 {
     mlx_t *window;
@@ -98,4 +95,21 @@ mlx_t *init_window(const t_map *data)
     if(!window)
         map_error(2, NULL);
     return(window);
+}
+
+void key_hook(mlx_key_data_t keydata, void *params)
+{
+    t_map *data;
+
+    data = params;
+    if(keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
+        mlx_close_window(data->window);
+    if(keydata.key == MLX_KEY_A && keydata.action == MLX_PRESS)
+        // move_player();
+    if(keydata.key == MLX_KEY_D && keydata.action == MLX_PRESS)
+        // move_player();
+    if(keydata.key == MLX_KEY_W && keydata.action == MLX_PRESS)
+        // move_player();
+    if(keydata.key == MLX_KEY_S && keydata.action == MLX_PRESS)
+        // move_player();
 }

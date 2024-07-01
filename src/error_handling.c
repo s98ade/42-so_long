@@ -6,7 +6,7 @@
 /*   By: sofia <sofia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 15:26:22 by sofia             #+#    #+#             */
-/*   Updated: 2024/06/30 16:25:33 by sofia            ###   ########.fr       */
+/*   Updated: 2024/07/01 09:40:17 by sofia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,12 @@ void map_error(int nbr, char *line)
 {
     if(nbr == 1)
     {
-        ft_putstr_fd("Error\nMap reading failed!", 2);
+        ft_putstr_fd("Error\nMap reading failed!\n", 2);
         exit(1);
     }
     else if(nbr == 2)
     {
-        ft_putstr_fd("Error\n Window initialization failed!\n", 2);
+        ft_putstr_fd("Error\nWindow initialization failed!\n", 2);
         exit(1);
     }
     else if(nbr == 3)
@@ -55,18 +55,18 @@ void map_error(int nbr, char *line)
     }
     else if(nbr == 4)
     {
-        ft_putstr_fd("Error\nMap is invalid!\ntype: SHAPE", 2);
+        ft_putstr_fd("Error\nMap is invalid!\ntype: SHAPE\n", 2);
         free(line);
         exit(1);
     }
     else if(nbr == 5)
     {
-        ft_putstr_fd("Error\nInvalid borders!\n", 2);
+        ft_putstr_fd("Error\nMap is invalid!\ntype: BORDERS\n", 2);
         exit(1);
     }
     else if(nbr == 6)
     {
-        ft_putstr_fd("Error\nMap invalid!\ntype: SYMBOLS\n", 2);
+        ft_putstr_fd("Error\nMap is invalid!\ntype: SYMBOLS\n", 2);
         exit(1);
     }
     else if(nbr == 7)

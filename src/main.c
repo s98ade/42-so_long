@@ -26,7 +26,7 @@ int main(int argc, char **argv)
     init_texture(data.imgs, &data);
     init_images(data.imgs, data.window, &data);
     draw_map(&data, data.window);
-   // mlx_key_hook(map->window, &key_hook, map);
+    mlx_key_hook(data.window, &key_hook, &data);
     mlx_loop(data.window);
     //free(map->map);
     mlx_terminate(data.window);

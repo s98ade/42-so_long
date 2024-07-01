@@ -66,15 +66,3 @@ void free_map(char **map)
     free(map);
     map = NULL;
 }
-
-// DEBUGGING //
-
-void print_map(t_map *data)
-{
-    int y = 0;
-    while(data->map[y])
-    {
-        printf("%s", data->map[y]);
-        y++;
-    }
-}
