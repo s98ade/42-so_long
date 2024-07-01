@@ -42,14 +42,6 @@ typedef struct s_objects
     mlx_image_t     *img_player;
 } t_objects;
 
-typedef enum e_move
-{
-    UP,
-    DOWN,
-    LEFT,
-    RIGHT
-} t_move;
-
 typedef struct s_map
 {
     int         collectables;
@@ -68,6 +60,7 @@ bool ber_file(const char *str);
 int open_file(const char *file);
 //int count_objects(t_map *data, t_object obj);
 void free_map(char **map);
+void print_map(t_map *data); //REMOVE AFTER DEBUG
 
 /* init_map */
 t_map init_data(char *file);

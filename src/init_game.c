@@ -6,7 +6,7 @@
 /*   By: sofia <sofia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 12:05:28 by sade              #+#    #+#             */
-/*   Updated: 2024/07/01 09:40:45 by sofia            ###   ########.fr       */
+/*   Updated: 2024/07/01 15:01:08 by sofia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,12 +104,21 @@ void key_hook(mlx_key_data_t keydata, void *params)
     data = params;
     if(keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
         mlx_close_window(data->window);
-    if(keydata.key == MLX_KEY_A && keydata.action == MLX_PRESS)
-        // move_player();
-    if(keydata.key == MLX_KEY_D && keydata.action == MLX_PRESS)
-        // move_player();
-    if(keydata.key == MLX_KEY_W && keydata.action == MLX_PRESS)
-        // move_player();
-    if(keydata.key == MLX_KEY_S && keydata.action == MLX_PRESS)
-        // move_player();
+    if(data->imgs->img_player->instances[0].enabled == true)
+    {
+        if(keydata.key == MLX_KEY_W && keydata.action == MLX_PRESS)
+            //function to check whether wall
+            data->imgs->img_player->instances[0].y -= BLOCK;
+        if(keydata.key == MLX_KEY_S && keydata.action == MLX_PRESS)
+            //function to check whether wall
+            data->imgs->img_player->instances[0].y += BLOCK;
+        if(keydata.key == MLX_KEY_A && keydata.action == MLX_PRESS)
+            //function to check whether wall
+            data->imgs->img_player->instances[0].x -= BLOCK;
+        if(keydata.key == MLX_KEY_D && keydata.action == MLX_PRESS)
+            //function to check whether wall
+            data->imgs->img_player->instances[0].x += BLOCK;
+        //function for checking collectables being collected
+        //function for entering the exit
+    }
 }

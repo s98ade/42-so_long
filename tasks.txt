@@ -1,5 +1,8 @@
-# UPDATE 29.06.:-> images init works now (ugly tho)
+# UPDATE 29.06.: -> Issue #1: map is read correctly but not drawn correctly (screen is rotated and mirrored)
+                 -> Issue #2: PLayer drawing is faulty (tiles missing after player left, player disappering behind floor)
+                 
+                 -> keyhook works
 
-# TODO: Code keyhook-function; test output
+# TODO: code move validations
 # TODO: Player movement (and maybe better grafics)
 # TODO: Finish map validation functions
