@@ -46,6 +46,7 @@ int get_map_len(const char *file)
         len++;
     }
     close(fd);
+    printf("The length is: %d\n", len);
     return(len);
 }
 
@@ -63,6 +64,9 @@ int get_map_depth(const char *file)
             rows++;
     }
     close(fd);
+    if(rows > 0 && c != '\n')
+        rows++;
+    printf("The height is: %d\n", rows);
     return(rows);
 }
 
