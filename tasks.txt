@@ -1,8 +1,10 @@
-# UPDATE 29.06.: -> Issue #1: map is read correctly but not drawn correctly (screen is rotated and mirrored)
-                 -> Issue #2: PLayer drawing is faulty (tiles missing after player left, player disappering behind floor)
+# UPDATE 02.07.: -> Issue #1: map is read correctly but not drawn correctly (screen is rotated and mirrored)
+                 -> Issue #2: Player drawing is faulty (tiles missing after player left, player disappering behind floor)
                  
+                 -> fixed get_map_depth
+                 -> wall works
                  -> keyhook works
 
+# TODO: test val_exit/val_col functionality
 # TODO: code move validations
-# TODO: Player movement (and maybe better grafics)
 # TODO: Finish map validation functions

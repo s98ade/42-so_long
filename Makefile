@@ -4,6 +4,7 @@ SRCS			= $(addprefix ./src/, main.c \
 									init_game.c \
 									init_map.c \
 									utils.c \
+									move_validation.c \
 									error_handling.c)
 
 OBJS			= $(SRCS:.c=.o)

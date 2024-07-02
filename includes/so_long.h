@@ -28,6 +28,14 @@
 # define TEXTURE_FLOOR "./textures/space.png"
 # define TEXTURE_EXIT "./textures/exit.png"
 
+typedef enum e_move
+{
+    UP,
+    DOWN,
+    LEFT,
+    RIGHT
+} t_move;
+
 typedef struct s_objects
 {
     mlx_texture_t   *tex_floor;
@@ -69,10 +77,15 @@ int get_map_len(const char *file);
 void check_file(const char *file);
 void init_map(char *file, t_map *data);
 
-/* check_map */
+/* map_validation */
 // void validate_map_sides(t_map *data);
 // void validate_map_borders(t_map *data);
 // void validate_map(t_map *data);
+
+/* move_validation */
+bool is_wall(t_map *data, t_move move);
+void is_exit(t_map *data);
+void is_collectable(t_map *data);
 
 /* init_game */
 void init_texture(t_objects *texture, t_map *data);
@@ -80,9 +93,6 @@ void init_images(t_objects *image, mlx_t *window, t_map *data);
 mlx_t *init_window(const t_map *data);
 void draw_map(t_map *data, mlx_t *window);
 void key_hook(mlx_key_data_t keydata, void *params);
-
-/* movements */
-
 
 /* error_handling */
 void file_error(int nbr);

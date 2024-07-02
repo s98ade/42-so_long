@@ -6,7 +6,7 @@
 /*   By: sofia <sofia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 12:05:28 by sade              #+#    #+#             */
-/*   Updated: 2024/07/01 15:01:08 by sofia            ###   ########.fr       */
+/*   Updated: 2024/07/02 20:35:34 by sofia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,10 @@ void draw_map(t_map *data, mlx_t *window)
     int j;
 
     i = 0;
-    while(data->map[i])
+    while(i < data->map_height)
     {
         j = 0;
-        while(data->map[i][j])
+        while(j < data->map_width)
         {
             if(data->map[i][j] == '1')
                 mlx_image_to_window(window, data->imgs->img_wall, i * BLOCK, j * BLOCK);
@@ -107,17 +107,17 @@ void key_hook(mlx_key_data_t keydata, void *params)
     if(data->imgs->img_player->instances[0].enabled == true)
     {
         if(keydata.key == MLX_KEY_W && keydata.action == MLX_PRESS)
-            //function to check whether wall
-            data->imgs->img_player->instances[0].y -= BLOCK;
+            if(!is_wall(data, UP))
+                data->imgs->img_player->instances[0].y -= BLOCK;
         if(keydata.key == MLX_KEY_S && keydata.action == MLX_PRESS)
-            //function to check whether wall
-            data->imgs->img_player->instances[0].y += BLOCK;
+            if(!is_wall(data, DOWN))
+                data->imgs->img_player->instances[0].y += BLOCK;
         if(keydata.key == MLX_KEY_A && keydata.action == MLX_PRESS)
-            //function to check whether wall
-            data->imgs->img_player->instances[0].x -= BLOCK;
+            if(!is_wall(data, LEFT))
+                data->imgs->img_player->instances[0].x -= BLOCK;
         if(keydata.key == MLX_KEY_D && keydata.action == MLX_PRESS)
-            //function to check whether wall
-            data->imgs->img_player->instances[0].x += BLOCK;
+            if(!is_wall(data, RIGHT))
+                data->imgs->img_player->instances[0].x += BLOCK;
         //function for checking collectables being collected
         //function for entering the exit
     }
