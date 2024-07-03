@@ -6,7 +6,7 @@
 /*   By: sofia <sofia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 20:05:31 by sofia             #+#    #+#             */
-/*   Updated: 2024/07/03 12:51:15 by sofia            ###   ########.fr       */
+/*   Updated: 2024/07/03 17:59:04 by sofia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ bool is_wall(t_map *data, t_move move)
         return(true);
     else if(move == RIGHT && data->map[y][x + 1] == '1')
         return(true);
+    print_steps();
     return(false);
 }
 

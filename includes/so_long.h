@@ -74,7 +74,7 @@ typedef struct s_map
 bool ber_file(const char *str);
 int open_file(const char *file);
 void free_map(char **map);
-void print_map(t_map *data); //REMOVE AFTER DEBUG
+void print_steps(void);
 
 /* init_map */
 t_map init_data(char *file);
