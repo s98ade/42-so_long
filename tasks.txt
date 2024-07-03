@@ -1,9 +1,10 @@
-# UPDATE 02.07.: -> Issue #1: map is read correctly but not drawn correctly (screen is rotated and mirrored)
-                 -> Issue #2: Player drawing is faulty (tiles missing after player left, player disappering behind floor)
-                 
-                 -> fixed get_map_depth
-                 -> wall works
-                 -> keyhook works
+03.07. -> map validation done
+02.07. -> fixed get_map_depth
+02.07. -> wall works
+01.07. -> keyhook works
 
-# TODO: Finish map validation functions (check items etc.)
+# TODO: -> Issue #2: Player drawing is faulty (tiles missing after player left, player disappering behind floor)
+# TODO: -> Issue #1: map is read correctly but not drawn correctly (screen is rotated and mirrored)
 # TODO: test val_exit/val_col functionality
+# TODO: refactor error_handling
+# TODO: Norminette

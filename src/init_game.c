@@ -6,7 +6,7 @@
 /*   By: sofia <sofia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 12:05:28 by sade              #+#    #+#             */
-/*   Updated: 2024/07/02 20:35:34 by sofia            ###   ########.fr       */
+/*   Updated: 2024/07/03 17:31:29 by sofia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ void key_hook(mlx_key_data_t keydata, void *params)
         if(keydata.key == MLX_KEY_D && keydata.action == MLX_PRESS)
             if(!is_wall(data, RIGHT))
                 data->imgs->img_player->instances[0].x += BLOCK;
-        //function for checking collectables being collected
-        //function for entering the exit
+        is_collectable(data);
+        is_exit(data);
     }
 }
