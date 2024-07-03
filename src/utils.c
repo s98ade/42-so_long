@@ -36,22 +36,6 @@ int open_file(const char *file)
     return(fd);
 }
 
-/* int count_objects(t_map *data, t_object obj)
-{
-    int count;
-    int i;
-
-    i = 0;
-    count = 0;
-    while(i < (data->map_width * data->map_height))
-    {
-        if(data->objects[i] == obj)
-            count++;
-        i++;
-    }
-    return(count);
-} */
-
 void free_map(char **map)
 {
     int i;

@@ -50,9 +50,16 @@ typedef struct s_objects
     mlx_image_t     *img_player;
 } t_objects;
 
+typedef struct s_count
+{
+    int p;
+    int c;
+    int e;
+} t_count;
+
 typedef struct s_map
 {
-    int         collectables;
+    t_count     *count;
     int         collected;
     int         map_width;
     int         map_height;
@@ -66,7 +73,6 @@ typedef struct s_map
 /* utils */
 bool ber_file(const char *str);
 int open_file(const char *file);
-//int count_objects(t_map *data, t_object obj);
 void free_map(char **map);
 void print_map(t_map *data); //REMOVE AFTER DEBUG
 
@@ -78,9 +84,10 @@ void check_file(const char *file);
 void init_map(char *file, t_map *data);
 
 /* map_validation */
-// void validate_map_sides(t_map *data);
-// void validate_map_borders(t_map *data);
-// void validate_map(t_map *data);
+void validate_map_sides(t_map *data);
+void validate_map_borders(t_map *data);
+void validate_map(t_map *data);
+void check_items(t_map *data);
 
 /* move_validation */
 bool is_wall(t_map *data, t_move move);

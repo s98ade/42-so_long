@@ -5,6 +5,5 @@
                  -> wall works
                  -> keyhook works
 
+# TODO: Finish map validation functions (check items etc.)
 # TODO: test val_exit/val_col functionality
-# TODO: code move validations
-# TODO: Finish map validation functions
