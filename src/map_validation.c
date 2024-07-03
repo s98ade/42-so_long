@@ -6,7 +6,7 @@
 /*   By: sofia <sofia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 12:04:39 by sade              #+#    #+#             */
-/*   Updated: 2024/07/03 10:59:24 by sofia            ###   ########.fr       */
+/*   Updated: 2024/07/03 12:58:54 by sofia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@ void validate_map_borders(t_map *data)
     i = 0;
     while(i < data->map_width)
     {
-        if(data->map[i] != '1')
+        if(data->map[0][i] != '1')
             map_error(5, NULL);
         i++;
     }
     i = (data->map_width * data->map_height) - data->map_width;
     while(i < (data->map_width * data->map_height))
     {
-        if(data->map[i] != '1')
+        if(data->map[0][i] != '1')
             map_error(5, NULL);
         i++;
     }
@@ -43,9 +43,9 @@ void validate_map_sides(t_map *data)
     {
         start = i * data->map_width;
         end = start + data->map_width - 1;
-        if(data->map[start] != '1')
+        if(data->map[start][0] != '1')
             map_error(5, NULL);
-        if(data->map[end] != '1')
+        if(data->map[end][0] != '1')
             map_error(5, NULL);
         i++;
     }
@@ -80,7 +80,6 @@ void check_items(t_map *data)
 void validate_map(t_map *data)
 {
     validate_map_borders(data);
-    validate_map__sides(data);
-    //
-    
+    validate_map_sides(data);
+    check_items(data);  
 }

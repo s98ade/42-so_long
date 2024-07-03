@@ -6,7 +6,7 @@
 /*   By: sofia <sofia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 20:05:31 by sofia             #+#    #+#             */
-/*   Updated: 2024/07/02 20:52:36 by sofia            ###   ########.fr       */
+/*   Updated: 2024/07/03 12:51:15 by sofia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void is_exit(t_map *data)
     
     x = data->imgs->img_player->instances[0].x / BLOCK;
     y = data->imgs->img_player->instances[0].y / BLOCK;
-    if(data->collected == data->collectables)
+    if(data->collected == data->count->c)
     {
         if(data->map[y][x] == 'E')
         {
@@ -57,7 +57,7 @@ void is_collectable(t_map *data)
     y = data->imgs->img_player->instances[0].y;
     if(data->map[y / BLOCK][x / BLOCK] == 'C')
     {
-        while(i < data->collectables)
+        while(i < data->count->c)
         {
             if(x == data->imgs->img_coin->instances[i].x && y == data->imgs->img_coin->instances[i].y)
             {
