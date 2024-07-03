@@ -6,7 +6,7 @@
 /*   By: sofia <sofia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 12:05:28 by sade              #+#    #+#             */
-/*   Updated: 2024/07/03 17:31:29 by sofia            ###   ########.fr       */
+/*   Updated: 2024/07/03 17:41:30 by sofia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,16 +68,16 @@ void draw_map(t_map *data, mlx_t *window)
         while(j < data->map_width)
         {
             if(data->map[i][j] == '1')
-                mlx_image_to_window(window, data->imgs->img_wall, i * BLOCK, j * BLOCK);
+                mlx_image_to_window(window, data->imgs->img_wall, j * BLOCK, i * BLOCK);
             else if(data->map[i][j] == '0')
-                mlx_image_to_window(window, data->imgs->img_floor, i * BLOCK, j * BLOCK);
+                mlx_image_to_window(window, data->imgs->img_floor, j * BLOCK, i * BLOCK);
             else if(data->map[i][j] == 'C')
-                mlx_image_to_window(window, data->imgs->img_coin, i * BLOCK, j * BLOCK);
+                mlx_image_to_window(window, data->imgs->img_coin, j * BLOCK, i * BLOCK);
             else if(data->map[i][j] == 'E')
-                mlx_image_to_window(window, data->imgs->img_exit, i * BLOCK, j * BLOCK);
+                mlx_image_to_window(window, data->imgs->img_exit, j * BLOCK, i * BLOCK);
             else if(data->map[i][j] == 'P')
             {
-                mlx_image_to_window(window, data->imgs->img_player, i * BLOCK, j * BLOCK);
+                mlx_image_to_window(window, data->imgs->img_player, j * BLOCK, i * BLOCK);
                 data->start_y = i;
                 data->start_x = j;
             }
