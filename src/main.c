@@ -26,6 +26,7 @@ int main(int argc, char **argv)
     init_texture(data.imgs, &data);
     init_images(data.imgs, data.window, &data);
     validate_path(&data);
+    printf("test\n");
     draw_map(&data, data.window);
     mlx_key_hook(data.window, &key_hook, &data);
     mlx_loop(data.window);

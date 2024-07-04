@@ -6,7 +6,7 @@
 /*   By: sofia <sofia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 14:09:49 by sofia             #+#    #+#             */
-/*   Updated: 2024/07/04 14:09:52 by sofia            ###   ########.fr       */
+/*   Updated: 2024/07/04 20:45:28 by sofia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,11 +77,7 @@ void draw_map(t_map *data, mlx_t *window)
             else if(data->map[i][j] == 'E')
                 mlx_image_to_window(window, data->imgs->img_exit, j * BLOCK, i * BLOCK);
             else if(data->map[i][j] == 'P')
-            {
                 mlx_image_to_window(window, data->imgs->img_player, j * BLOCK, i * BLOCK);
-                data->start_y = i;
-                data->start_x = j;
-            }
             j++;
         }
         i++;

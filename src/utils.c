@@ -48,9 +48,9 @@ void get_start_coordinates(char **map, t_map *data)
         {
             if(map[i][j] == 'P')
             {
-                data->start_x = i;
-                data->start_y = j;
-                printf("start x: %d, start y: %d\n", data->start_x, data->start_y);
+                data->start_x = j;
+                data->start_y = i;
+                return ;
             }
             j++;
         }

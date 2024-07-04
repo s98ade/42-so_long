@@ -6,7 +6,7 @@
 /*   By: sofia <sofia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 10:00:52 by sofia             #+#    #+#             */
-/*   Updated: 2024/07/04 19:36:45 by sofia            ###   ########.fr       */
+/*   Updated: 2024/07/04 20:36:59 by sofia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,14 +74,11 @@ void restore_map(char **map)
         }
         i++;
     }
-    print_map(map);
 }
 
 void validate_path(t_map *data)
 {
-    printf("%d, %d\n", data->start_x, data->start_y);
     flood_fill(data->map, data, data->start_x, data->start_y);
-    print_map(data->map);
     is_valid_path(data->map);
     restore_map(data->map);
 }
