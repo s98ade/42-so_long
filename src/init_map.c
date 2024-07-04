@@ -20,7 +20,7 @@ void check_file(const char *file)
     fd = open_file(file);
     read_line = get_next_line(fd);
     if(read_line == NULL)
-        map_error(1, NULL);
+        init_error(1);
     while(read_line)
     {
         free(read_line);

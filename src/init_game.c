@@ -6,7 +6,7 @@
 /*   By: sofia <sofia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 12:05:28 by sade              #+#    #+#             */
-/*   Updated: 2024/07/03 17:41:30 by sofia            ###   ########.fr       */
+/*   Updated: 2024/07/03 19:55:50 by sofia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ mlx_t *init_window(const t_map *data)
 
     window = mlx_init(BLOCK * data->map_width, BLOCK * data->map_height, "so_long", true);
     if(!window)
-        map_error(2, NULL);
+        init_error(2);
     return(window);
 }
 

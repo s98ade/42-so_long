@@ -6,6 +6,7 @@ SRCS			= $(addprefix ./src/, main.c \
 									utils.c \
 									move_validation.c \
 									map_validation.c \
+									path_validation.c \
 									error_handling.c)
 
 OBJS			= $(SRCS:.c=.o)

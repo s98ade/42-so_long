@@ -74,7 +74,7 @@ typedef struct s_map
 bool ber_file(const char *str);
 int open_file(const char *file);
 void free_map(char **map);
-void print_map(t_map *data); //REMOVE AFTER DEBUG
+void print_steps(void);
 
 /* init_map */
 t_map init_data(char *file);
@@ -94,6 +94,12 @@ bool is_wall(t_map *data, t_move move);
 void is_exit(t_map *data);
 void is_collectable(t_map *data);
 
+/* path_validation */
+void validate_path(t_map data);
+void flood_fill(char **map, t_map cur, int x, int y);
+void is_valid_path(char **map);
+void restore_map(char **map);
+
 /* init_game */
 void init_texture(t_objects *texture, t_map *data);
 void init_images(t_objects *image, mlx_t *window, t_map *data);
@@ -105,5 +111,6 @@ void key_hook(mlx_key_data_t keydata, void *params);
 void file_error(int nbr);
 void map_error(int nbr, char *line);
 void error_mlx(char **map);
+void init_error(int nbr);
 
 #endif

@@ -29,9 +29,8 @@ int open_file(const char *file)
     fd = open(file, O_RDONLY);
     if(fd == -1)
     {
-        ft_putstr_fd("Error\nFile couldn't be opened!\n", 2);
         close(fd);
-        exit(1);
+        init_error(1);
     }
     return(fd);
 }
@@ -51,12 +50,10 @@ void free_map(char **map)
     map = NULL;
 }
 
-/* void print_map(t_map *data)
+void print_steps(void)
 {
-    int y = 0;
-    while(data->map[y])
-    {
-        printf("%s", data->map[y]);
-        y++;
-    }
-} */
+    static int steps;
+
+    steps++;
+    ft_printf("Number of steps: %d\n", steps);
+}

@@ -6,7 +6,7 @@
 /*   By: sofia <sofia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 15:26:22 by sofia             #+#    #+#             */
-/*   Updated: 2024/07/01 09:40:17 by sofia            ###   ########.fr       */
+/*   Updated: 2024/07/04 10:24:42 by sofia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,22 +38,7 @@ void file_error(int nbr)
 
 void map_error(int nbr, char *line)
 {
-    if(nbr == 1)
-    {
-        ft_putstr_fd("Error\nMap reading failed!\n", 2);
-        exit(1);
-    }
-    else if(nbr == 2)
-    {
-        ft_putstr_fd("Error\nWindow initialization failed!\n", 2);
-        exit(1);
-    }
-    else if(nbr == 3)
-    {
-        ft_putstr_fd("Error\nRead error!\n", 2);
-        exit(1);
-    }
-    else if(nbr == 4)
+    if(nbr == 4)
     {
         ft_putstr_fd("Error\nMap is invalid!\ntype: SHAPE\n", 2);
         free(line);
@@ -71,7 +56,21 @@ void map_error(int nbr, char *line)
     }
     else if(nbr == 7)
     {
-        ft_putstr_fd("Error\nInitialization of image failed!\n", 2);
+        ft_putstr_fd("Error\nMap is invalid!\ntype: INVALID PATH\n", 2);
+        exit(1);
+    }
+}
+
+void init_error(int nbr)
+{
+    if(nbr == 1)
+    {
+        ft_putstr_fd("Error\nRead error!\n", 2);
+        exit(1);
+    }
+    else if(nbr == 2)
+    {
+        ft_putstr_fd("Error\nWindow initialization failed!\n", 2);
         exit(1);
     }
 }
