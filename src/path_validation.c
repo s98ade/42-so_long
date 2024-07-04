@@ -6,7 +6,7 @@
 /*   By: sofia <sofia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 10:00:52 by sofia             #+#    #+#             */
-/*   Updated: 2024/07/04 14:53:46 by sofia            ###   ########.fr       */
+/*   Updated: 2024/07/04 19:36:45 by sofia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ void is_valid_path(char **map)
     i = 0;
     while(map[i] != NULL)
     {
-        printf("test\n");
         if(ft_strchr(map[i], 'E') != NULL)
         {
             free_map(map);

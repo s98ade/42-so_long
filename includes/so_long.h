@@ -73,6 +73,7 @@ typedef struct s_map
 /* utils */
 bool ber_file(const char *str);
 int open_file(const char *file);
+void get_start_coordinates(char **map, t_map *data);
 void free_map(char **map);
 void print_steps(void);
 void print_map(char **map); //DEBUG

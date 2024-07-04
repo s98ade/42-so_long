@@ -35,6 +35,29 @@ int open_file(const char *file)
     return(fd);
 }
 
+void get_start_coordinates(char **map, t_map *data)
+{
+    int i;
+    int j;
+
+    i = 0;
+    while(map[i][0] != '\0')
+    {
+        j = 0;
+        while(map[i][j] != '\0')
+        {
+            if(map[i][j] == 'P')
+            {
+                data->start_x = i;
+                data->start_y = j;
+                printf("start x: %d, start y: %d\n", data->start_x, data->start_y);
+            }
+            j++;
+        }
+        i++;
+    }
+}
+
 void free_map(char **map)
 {
     int i;
