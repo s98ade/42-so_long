@@ -6,15 +6,15 @@
 /*   By: sofia <sofia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 10:00:52 by sofia             #+#    #+#             */
-/*   Updated: 2024/07/04 10:44:39 by sofia            ###   ########.fr       */
+/*   Updated: 2024/07/04 14:53:46 by sofia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void flood_fill(char **map, t_map cur, int x, int y)
+void flood_fill(char **map, t_map *cur, int x, int y)
 {
-    if(y < 0 || y >= cur.map_height || x < 0 || x >= cur.map_width || map[y][x] == '1')
+    if(y < 0 || y >= cur->map_height || x < 0 || x >= cur->map_width || map[y][x] == '1')
         return ;
     if(map[y][x] == 'f' || map[y][x] == 'c' || map[y][x] == 'e')
         return ;
@@ -35,8 +35,9 @@ void is_valid_path(char **map)
     int i;
 
     i = 0;
-    while(map[i][0] != '\0')
+    while(map[i] != NULL)
     {
+        printf("test\n");
         if(ft_strchr(map[i], 'E') != NULL)
         {
             free_map(map);
@@ -57,7 +58,7 @@ void restore_map(char **map)
     int j;
 
     i = 0;
-    while(map[i][0] != '\0')
+    while(map[i] != NULL)
     {
         j = 0;
         while(map[i][j])
@@ -74,11 +75,14 @@ void restore_map(char **map)
         }
         i++;
     }
+    print_map(map);
 }
 
-void validate_path(t_map data)
+void validate_path(t_map *data)
 {
-    flood_fill(data.map, data, data.start_x, data.start_x);
-    is_valid_path(data.map);
-    restore_map(data.map);
+    printf("%d, %d\n", data->start_x, data->start_y);
+    flood_fill(data->map, data, data->start_x, data->start_y);
+    print_map(data->map);
+    is_valid_path(data->map);
+    restore_map(data->map);
 }

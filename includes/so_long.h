@@ -75,6 +75,7 @@ bool ber_file(const char *str);
 int open_file(const char *file);
 void free_map(char **map);
 void print_steps(void);
+void print_map(char **map); //DEBUG
 
 /* init_map */
 t_map init_data(char *file);
@@ -95,8 +96,8 @@ void is_exit(t_map *data);
 void is_collectable(t_map *data);
 
 /* path_validation */
-void validate_path(t_map data);
-void flood_fill(char **map, t_map cur, int x, int y);
+void validate_path(t_map *data);
+void flood_fill(char **map, t_map *cur, int x, int y);
 void is_valid_path(char **map);
 void restore_map(char **map);
 

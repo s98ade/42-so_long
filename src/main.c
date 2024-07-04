@@ -21,11 +21,11 @@ int main(int argc, char **argv)
     if (!ber_file(argv[1]))
         file_error(2);
     data = init_data(argv[1]);
-    validate_path(data);
     data.window = init_window(&data);
     mlx_set_setting(MLX_STRETCH_IMAGE, true);
     init_texture(data.imgs, &data);
     init_images(data.imgs, data.window, &data);
+    validate_path(&data);
     draw_map(&data, data.window);
     mlx_key_hook(data.window, &key_hook, &data);
     mlx_loop(data.window);

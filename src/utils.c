@@ -57,3 +57,15 @@ void print_steps(void)
     steps++;
     ft_printf("Number of steps: %d\n", steps);
 }
+
+void print_map(char **map)
+{
+    int i = 0;
+
+    while(map[i] != NULL)
+    {
+        printf("%s", map[i]);
+        i++;
+    }
+    printf("\n");
+}
