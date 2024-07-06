@@ -6,7 +6,7 @@
 /*   By: sofia <sofia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 20:05:31 by sofia             #+#    #+#             */
-/*   Updated: 2024/07/05 10:35:27 by sofia            ###   ########.fr       */
+/*   Updated: 2024/07/05 13:38:24 by sofia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,6 @@ void is_exit(t_map *data)
     int x;
     int y;
     
-    printf("Check exit...\n");
-    printf("Collected: %d, Available: %d\n", data->collected, data->count->c);
     x = data->imgs->img_player->instances[0].x / BLOCK;
     y = data->imgs->img_player->instances[0].y / BLOCK;
     if(data->collected == data->count->c)

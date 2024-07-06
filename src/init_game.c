@@ -6,7 +6,7 @@
 /*   By: sofia <sofia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 14:09:49 by sofia             #+#    #+#             */
-/*   Updated: 2024/07/05 10:29:36 by sofia            ###   ########.fr       */
+/*   Updated: 2024/07/06 09:59:02 by sofia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,30 +58,11 @@ void init_images(t_objects *image, mlx_t *window, t_map *data)
 
 void draw_map(t_map *data, mlx_t *window)
 {
-    // ERROR HANDLING MISSING
-    int i;
-    int j;
-
-    i = 0;
-    while(i < data->map_height)
-    {
-        j = 0;
-        while(j < data->map_width)
-        {
-            if(data->map[i][j] == '1')
-                mlx_image_to_window(window, data->imgs->img_wall, j * BLOCK, i * BLOCK);
-            else if(data->map[i][j] == '0')
-                mlx_image_to_window(window, data->imgs->img_floor, j * BLOCK, i * BLOCK);
-            else if(data->map[i][j] == 'C')
-                mlx_image_to_window(window, data->imgs->img_coin, j * BLOCK, i * BLOCK);
-            else if(data->map[i][j] == 'E')
-                mlx_image_to_window(window, data->imgs->img_exit, j * BLOCK, i * BLOCK);
-            else if(data->map[i][j] == 'P')
-                mlx_image_to_window(window, data->imgs->img_player, j * BLOCK, i * BLOCK);
-            j++;
-        }
-        i++;
-    }
+    draw_floor(data, window);
+    draw_walls(data, window);
+    draw_exit(data, window);
+    draw_collectables(data, window);
+    draw_player(data, window);
 }
 
 mlx_t *init_window(const t_map *data)

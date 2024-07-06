@@ -6,7 +6,7 @@
 /*   By: sofia <sofia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 10:00:52 by sofia             #+#    #+#             */
-/*   Updated: 2024/07/05 10:12:55 by sofia            ###   ########.fr       */
+/*   Updated: 2024/07/05 13:07:36 by sofia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,4 @@ void validate_path(t_map *data)
     flood_fill(data->map, data, data->start_x, data->start_y);
     is_valid_path(data->map);
     restore_map(data->map);
-    print_map(data->map);
 }

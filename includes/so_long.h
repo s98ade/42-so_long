@@ -109,6 +109,13 @@ mlx_t *init_window(const t_map *data);
 void draw_map(t_map *data, mlx_t *window);
 void key_hook(mlx_key_data_t keydata, void *params);
 
+/* draw_utils */
+void draw_floor(t_map *data, mlx_t *window);
+void draw_walls(t_map *data, mlx_t *window);
+void draw_exit(t_map *data, mlx_t *window);
+void draw_collectables(t_map *data, mlx_t *window);
+void draw_player(t_map *data, mlx_t *window);
+
 /* error_handling */
 void file_error(int nbr);
 void map_error(int nbr, char *line);
