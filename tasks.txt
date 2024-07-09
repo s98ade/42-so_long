@@ -1,3 +1,4 @@
+06.07. -> fixed drawing problem
 05.07. -> fixed exit and val_col validation
 05.07. -> fixed player display
 03.07. -> map validation done
@@ -5,7 +6,6 @@
 02.07. -> wall works
 01.07. -> keyhook works
 
-# TODO: -> Issue #3: drawing map is now crashing after refactoring it like Ville
-# TODO: -> Issue #2: Player drawing is faulty (tiles missing after player left, player disappering behind floor)
+# TODO: Error-handling invalid maps
 # TODO: Norminette
 # TODO: Check on memory leaks and make clean-up

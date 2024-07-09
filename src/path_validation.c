@@ -6,7 +6,7 @@
 /*   By: sofia <sofia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 10:00:52 by sofia             #+#    #+#             */
-/*   Updated: 2024/07/05 13:07:36 by sofia            ###   ########.fr       */
+/*   Updated: 2024/07/09 19:36:08 by sofia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ void is_valid_path(char **map)
             free_map(map);
             map_error(7, NULL);
         }
-        i++;    
-    }
+        i++; 
+    }   
 }
 
 void restore_map(char **map)

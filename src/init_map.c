@@ -101,9 +101,11 @@ t_map init_data(char *file)
         file_error(3);
     data.map = NULL;
     data.imgs = malloc(sizeof(t_objects));
+    if(!data.imgs)
+        map_error(6, NULL);
     data.collected = 0;
     init_map(file, &data);
-    get_start_coordinates(data.map, &data);
     validate_map(&data);
+    get_start_coordinates(data.map, &data);
     return(data);
 }
