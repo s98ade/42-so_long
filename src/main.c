@@ -29,6 +29,8 @@ int main(int argc, char **argv)
     draw_map(&data, data.window);
     mlx_key_hook(data.window, &key_hook, &data);
     mlx_loop(data.window);
+    free(data.count); 
+    free(data.imgs);
     free_map(data.map);
     mlx_terminate(data.window);
     return(0);

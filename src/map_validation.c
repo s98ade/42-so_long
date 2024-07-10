@@ -6,7 +6,7 @@
 /*   By: sofia <sofia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 12:04:39 by sade              #+#    #+#             */
-/*   Updated: 2024/07/09 19:20:39 by sofia            ###   ########.fr       */
+/*   Updated: 2024/07/10 13:20:41 by sofia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,11 +75,14 @@ void check_items(t_map *data)
 
 void validate_map(t_map *data)
 {
+    data->count = malloc(sizeof(t_count));
+    if(!data->count)
+        file_error(4);
     data->count->c = 0;
     data->count->e = 0;
     data->count->p = 0;
     
     validate_map_borders(data);
     validate_map_sides(data);
-    check_items(data);  
+    check_items(data); 
 }
