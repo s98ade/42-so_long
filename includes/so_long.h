@@ -11,63 +11,63 @@
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
-# define SO_LONG_H
+#define SO_LONG_H
 
 #include "../Libft/libft.h"
 #include "../MLX42/include/MLX42/MLX42.h"
 
 #include <fcntl.h>
 #include <stdbool.h>
-#include<stdio.h>
+#include <stdio.h>
 
-# define BLOCK 50
+#define BLOCK 50
 
-# define TEXTURE_COLLECTABLE "./textures/collectable.png"
-# define TEXTURE_PLAYER "./textures/player.png"
-# define TEXTURE_WALL "./textures/wall.png"
-# define TEXTURE_FLOOR "./textures/space.png"
-# define TEXTURE_EXIT "./textures/exit.png"
+#define TEXTURE_COLLECTABLE "./textures/coin.png"
+#define TEXTURE_PLAYER "./textures/knight.png"
+#define TEXTURE_WALL "./textures/wall.png"
+#define TEXTURE_FLOOR "./textures/floor.png"
+#define TEXTURE_EXIT "./textures/exit.png"
 
 typedef enum e_move
 {
-    UP,
-    DOWN,
-    LEFT,
-    RIGHT
+	UP,
+	DOWN,
+	LEFT,
+	RIGHT
 } t_move;
 
 typedef struct s_objects
 {
-    mlx_texture_t   *tex_floor;
-    mlx_texture_t   *tex_wall;
-    mlx_texture_t   *tex_coin;
-    mlx_texture_t   *tex_exit;
-    mlx_texture_t   *tex_player;
-    mlx_image_t     *img_floor;
-    mlx_image_t     *img_wall;
-    mlx_image_t     *img_coin;
-    mlx_image_t     *img_exit;
-    mlx_image_t     *img_player;
+	mlx_texture_t *tex_floor;
+	mlx_texture_t *tex_wall;
+	mlx_texture_t *tex_coin;
+	mlx_texture_t *tex_exit;
+	mlx_texture_t *tex_player;
+	mlx_image_t *img_floor;
+	mlx_image_t *img_wall;
+	mlx_image_t *img_coin;
+	mlx_image_t *img_exit;
+	mlx_image_t *img_player;
 } t_objects;
 
 typedef struct s_count
 {
-    int p;
-    int c;
-    int e;
+	int p;
+	int c;
+	int e;
 } t_count;
 
 typedef struct s_map
 {
-    t_count     *count;
-    int         collected;
-    int         map_width;
-    int         map_height;
-    int         start_x;
-    int         start_y;
-    mlx_t       *window;
-    char        **map;
-    t_objects   *imgs;
+	t_count *count;
+	int collected;
+	int map_width;
+	int map_height;
+	int start_x;
+	int start_y;
+	mlx_t *window;
+	char **map;
+	t_objects *imgs;
 } t_map;
 
 /* utils */
@@ -76,7 +76,7 @@ int open_file(const char *file);
 void get_start_coordinates(char **map, t_map *data);
 void free_map(char **map);
 void print_steps(void);
-void print_map(char **map); //DEBUG
+void print_map(char **map); // DEBUG
 
 /* init_map */
 t_map init_data(char *file);
