@@ -25,5 +25,18 @@ The program has to fulfill following requirements:
 | C | Coin |
 | E | Exit |
 
+- the program should be able to handle errors
+- `ESC` should close the window smoothly
 
 ### How to run
+The program was build to run in Linux environment. For the program to run on MacOS, changes in the dependencies of the Makefile needs to be made. Please read more [here](https://github.com/codam-coding-college/MLX42).
+
+1. Git clone this repository into your preferred repo
+2. To compile the program run: `make`, to re-compile `re make`, to remove object files `clean`, and to remove the compiled program `fclean`
+3. After compiling, run the executable with a map of choice:
+
+```
+.\so_long maps/map1.ber
+```
+
+
